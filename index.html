@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Simple Sidebar - Start Bootstrap Template</title>
+  <title>Demo</title>
 
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -19,12 +19,16 @@
 </head>
 
 <body>
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand" href="#"><img alt="weeli-fi" height="110px" src="img/logo.svg"></a>
+</nav>
   <div class="d-flex" id="wrapper">
     <!-- Sidebar -->
     <div class="bg-light border-right" id="sidebar-wrapper">
-      <div class="sidebar-heading">WhelFi</div>
+      <div class="sidebar-heading"></div>
       <div class="list-group list-group-flush" id="list"></div>
     </div>
+
     <!-- /#sidebar-wrapper -->
 
     <!-- Page Content -->
@@ -32,6 +36,10 @@
       <div class="container-fluid">
         <iframe id="mazeMap" height="500" width="800" style="border: 1px solid grey"></iframe>
         <p id="x" class="used"></p>
+        <div class="circle delay1"></div>
+        <div class="circle delay2"></div>
+        <div class="circle delay3"></div>
+        <div class="circle delay4"></div>
       </div>
     </div>
     <!-- /#page-content-wrapper -->
@@ -51,9 +59,11 @@
 
     window.onload = function(){
       if(getUrlVars()['lat'] !== undefined){
-        document.getElementById('mazeMap').src = "https://use.mazemap.com/embed.html#v=1&zlevel="+getUrlVars()["floor"]+"&center="+getUrlVars()["lat"]+","+getUrlVars()["lon"]+"&zoom=21&utm_medium=iframe";
+        document.getElementById('mazeMap').src = "https://use.mazemap.com/embed.html#v=1&zlevel="+getUrlVars()["floor"]+"&center="+getUrlVars()["lat"]+","+getUrlVars()["lon"]+"&zoom=21&&campusid=3utm_medium=iframe";
       } else {
-        document.getElementById('mazeMap').src = "https://use.mazemap.com/embed.html#v=1&zlevel="+floor+"&center="+lat+","+lon+"&zoom=21&utm_medium=iframe";
+        $(".circle").hide();
+        $("#x").hide();
+        document.getElementById('mazeMap').src = "https://use.mazemap.com/embed.html#v=1&zlevel="+floor+"&center="+lat+","+lon+"&zoom=21&campusid=3&utm_medium=iframe";
       }
 
 
@@ -61,7 +71,7 @@
         let a = document.createElement("a");
         if (i === 3){
           a.innerHTML = i + "<span class='used'></span>";
-          a.href = "?lat=10.404040&lon=63.417880&floor=2";
+          a.href = "?lat=10.392955&lon=63.420555&floor=1";
         } else {
           a.innerHTML = i + "<span class='free'></span>";
           a.href = "#";

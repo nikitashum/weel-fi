@@ -17,10 +17,16 @@ body {
 }
 
 #sidebar-wrapper .sidebar-heading {
-  padding: 0.875rem 1.25rem;
   font-size: 1.2rem;
 }
 
+.container-fluid{
+  padding-top: 10px;
+}
+
+.navbar {
+  border-bottom: 1px solid rgba(0,0,0,.125);
+}
 #sidebar-wrapper .list-group {
   width: 15rem;
 }
@@ -69,12 +75,71 @@ body {
 }
 
 #x {
+  opacity: 0;
   color: red;
   font-size: 2em;
   font-weight: bold;
   text-align: center;
   z-index: 10;
   position: fixed;
-  top: 240px;
+  top: 400px;
   left: 650px;
+  animation: bloop 2.5s linear 4s forwards infinite;
+}
+
+@keyframes bloop {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1.5);
+    opacity: 0.2;
+  }
+}
+.delay1 {
+   animation: waves 2.5s linear infinite;
+   animation-delay: 2s;
+ }
+
+.delay2 {
+   animation: waves 2.5s linear 4.5s forwards infinite;
+  animation-delay: 2.4s;
+ }
+
+.delay3 {
+   animation: waves 2.5s linear 4.5s forwards infinite;
+  animation-delay: 2.8s;
+ }
+
+.delay4 {
+   animation: waves 2.5s linear 4.5s forwards infinite;
+  animation-delay: 3.2s;
+ }
+
+.circle {
+  opacity: 0;
+  display: block;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  background: #0194c7;
+  margin: 10px;
+  transition: 5s ease;
+  position: absolute;
+  top: 450px;
+  left: 700px;
+}
+
+@-webkit-keyframes waves {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(4);
+    opacity: 0;
+  }
 }
